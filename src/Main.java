@@ -36,15 +36,15 @@ class Test2{
         return _y;
     }
 }
-class Stuff<T>{
+class Stuff<T>{ //templating class
     private T _thing; //tangible thing
-    public Stuff(){_thing = null;} //default null bc object
-    public Stuff(T t){_thing = t;} // pass in something that looks like thing
-    public T getThing(){ return _thing;}
-    public void setThing(T t){_thing = t;}
-    public void print(){
+    public Stuff(){_thing = null;} //default constructor that is null bc object
+    public Stuff(T t){_thing = t;} // n-arg constructor pass in something that looks like thing
+    public T getThing(){ return _thing;} //get method
+    public void setThing(T t){_thing = t;} //set method
+    public void print(){ //  Method to print details about the item in the Stuff box.
         if(_thing != null)
-            System.out.println("Type: " + _thing.getClass().getName() +
+            System.out.println("Type: " + _thing.getClass().getName() + // Print the type (like String, Integer) and the value of _thing.
                 ", value: " + _thing);
         else
             System.out.println("null member variable");
@@ -54,10 +54,10 @@ public class Main {
     public static void main(String[] args) {
 //        Test a = new Test();
 //        Test2 b = new Test2();
-        Stuff<Test> s = new Stuff<Test>();
+        Stuff<Test> s = new Stuff<Test>(); // Creates a new Stuff box that can hold a Test object.
         s.print();
-        s.setThing(new Test(5));
+        s.setThing(new Test(5)); // Puts a new Test object with a value of 5 into the Stuff box.
         s.print();
-        System.out.println(s.getThing().getX());
+        System.out.println(s.getThing().getX()); // Gets the Test object from the Stuff box and prints the value 5.
     }
 }
